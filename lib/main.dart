@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   'GENAP',
                   style: TextStyle(color: Colors.red, fontSize: 16),
                 ),
-              if (_counter != 0)
+              if (_counter % 2 != 0)
                 const Text(
                   'GANJIL',
                   style: TextStyle(
@@ -133,12 +133,15 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Align(
                 alignment: Alignment.bottomLeft,
-                child: FloatingActionButton(
-                  onPressed: (_counter != 0) ? _decrementCounter : null,
-                  tooltip: 'Decrement',
-                  backgroundColor: (_counter != 0) ? Colors.blue : Colors.blue,
-                  child: const Icon(Icons.remove),
-                ),
+                child: Visibility(
+                    visible: _counter == 0 ? false : true,
+                    child: FloatingActionButton(
+                      onPressed: (_counter != 0) ? _decrementCounter : null,
+                      tooltip: 'Decrement',
+                      backgroundColor:
+                          (_counter != 0) ? Colors.blue : Colors.blue,
+                      child: const Icon(Icons.remove),
+                    )),
               ),
               Align(
                 alignment: Alignment.bottomRight,
