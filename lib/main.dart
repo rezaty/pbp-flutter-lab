@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:counter_7/TambahBudget.dart';
+import 'package:counter_7/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Reza Taufiq Yahya PBP C',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -86,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
+        drawer: const MyDrawer(),
         body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
