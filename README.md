@@ -453,3 +453,35 @@ class _MyDataBudgetState extends State<MyDataBudget> {
   }
 }
 ```
+
+# Tugas 9: Elemen Dasar Flutter
+
+Nama            : Reza Taufiq Yahya
+
+Kelas           : PBP C
+
+NPM             : 2106654183
+
+### 1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+Bisa, membuat template sebelum mengambil data JSON lebih baik karena dapat merepresentasikan data dan struktur data apa yang akan diterima ketika data JSON diambil agar sesuai dengan respon. Jika tidak membuat template, Anda perlu menyesuaikan data yang diterima dan tipe data secara manual saat kita menerima data respons.
+### 2. Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+- Widget `ElevatedButton` adalah tombol yang dapat diberikan tulisan dengan warna latar belakang pada tombol. Digunakan sebagai tombol kembali pada halaman detail.
+-  Widget `flexibel` yang mengontrol baris, kolom, atau widget fleksibel. Digunakan saat validasi string ditampilkan pada halaman data sehingga tidak meluap.
+- Widget `RichText` yang menampilkan teks dalam berbagai style. Teks yang ditampilkan menggunakan objek `TextSpan`.
+- Widget `TextSpan` yang dapat memformat teks. Dapat memiliki turunan widget untuk menentukan style turunan widget. Digunakan saat menampilkan teks pada halaman detail.
+### 3. Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+- Pertama dependensi HTTP. Flutter untuk melakukan permintaan HTTP seperti GET.
+- Buat template class yang cocok dengan informasi respons yang akan diambil.
+- Melakukan http GET request untuk mengambil data JSON.
+- Mengkoversikan data JSON yang diambil ke template class yang sudah dibuat.
+- Menampilkan data dengan `FutureBuilder`.
+### 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Refactor file di dalam folder `lib` menjadi 3 folder, yaitu `model`, `page`, dan `utils`. Menambahkan tombol navigasi pada drawer ke halaman `mywatchlist`.
+
+2. Membuat file `mywatchlist.dart` di folder model untuk membuat template MyWatchList untuk mempermudah data dan struktur data apa yang akan diterima nantinya ketika melakukan pemanggilan JSON.
+
+3. Membuat file `fetchmywatchlist.dart` di folder utils untuk melakukan pengambilan data JSON dari web service berupa data watchlist. File tersebut dengan depedensi HTTP melakukan request ke server heroku yang sudah dideploy di tugas 3.
+
+4. Membuat file `mywatchlist.dart` di folder `page` untuk menampilkan seluruh judul watchlist pada halaman mywatchlist. Setiap judul watchlist ditampilkan per baris yang dibungkus dengan widget `Card`. Kemudian dibuat navigasi dari setiap judul ke halaman detail menggunakan widget `ListTile`
+
+5. Membuat file `mywatchlistdetail.dart` di folder page untuk menampilkan halaman detail untuk setiap watchlist pada halaman mywatchlist. Halamannya menampilkan judul, release date, rating, review, dan status (sudah ditonton/belum). Tambahkan juga tombol `Back` untuk kembali ke halaman `mywatchlist`.
